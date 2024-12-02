@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#language-output {
+    list-style-type: none;
+    padding: 0;
+}
+
+.language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.language {
+    font-weight: bold;
+}
+
+.probability {
+    margin-right: 10px;
+    min-width: 50px;
+    text-align: right;
+}
+
+.probability-bar {
+    height: 5px;
+    background-color: #000000;
+    margin-top: 5px;
+}
