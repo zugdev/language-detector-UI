@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     async function fetchPredictions(text) {
         try {
-            const response = await fetch('http://lang-scan-api.vercel.app/predict', {
+            const response = await fetch('https://lang-scan-api.vercel.app/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
