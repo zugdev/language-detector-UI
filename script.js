@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let debounceTimer;
 
     async function fetchPredictions(text) {
+        const startTime = Date.now();  // capture the start time before the request
+
         try {
             const response = await fetch('https://lang-scan-api.vercel.app/predict', {
                 method: 'POST',
@@ -15,12 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 body: JSON.stringify({ text: text }),
             });
             
+            const endTime = Date.now();
+            const rtt = endTime - startTime;  // calculate round-trip time
+
             if (response.ok) {
                 console.log(response);
                 const data = await response.json();
-                if(data !== null){
+                if (data !== null) {
                     console.log(data);
-                    displayPredictions(data);
+                    displayPredictions(data, rtt);  
                 }
             } else {
                 console.error('Error fetching predictions');
@@ -30,8 +35,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function displayPredictions(data) {
+    function displayPredictions(data, rtt) {
         languageOutput.innerHTML = ''; // clear previous output
+        
+        const rttDisplay = document.createElement('li');
+        rttDisplay.textContent = `RTT: ${rtt} ms`;
+        languageOutput.appendChild(rttDisplay);
+
         data.top_5_languages.forEach(prediction => {
             const listItem = document.createElement('li');
             const probabilityBar = document.createElement('div');
