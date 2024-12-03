@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const textInput = document.getElementById('text-input');
     const languageOutput = document.getElementById('language-output');
 
-    const debounceDelay = 100;
+    const debounceDelay = 500;
     let debounceTimer;
 
     async function fetchPredictions(text) {
