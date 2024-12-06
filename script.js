@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const startTime = Date.now();  // capture the start time before the request
 
         try {
-            const response = await fetch('https://lang-scan-api.vercel.app/predict', {
+            const response = await fetch('https://langscan-5685b08d9ffd.herokuapp.com/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
